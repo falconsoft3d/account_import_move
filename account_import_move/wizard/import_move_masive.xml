@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+        <record id="form_wizard_import_asiento_masive" model="ir.ui.view">
+            <field name="name">form.wizard.import.asiento.masive.form</field>
+            <field name="model">wizard.import.asiento.masive</field>
+            <field name="arch" type="xml">
+                <form string="Importación Masiva de Asientos Contables">
+                    <group>
+                        <group>
+                            <field name="file_data" filename="file_name" widget="binary" required="1" class="oe_inline"/>
+                        </group>
+                        <group>
+                            <field name="delimiter"/>
+                        </group>
+                        <field name="file_name" invisible="1"/>
+                    </group>
+                    <footer>
+
+                        <button string="Importar" name="import_move_button" type="object" class="btn-primary"/>
+                        
+                        <button string="Cancelar" class="oe_link" special="cancel"/>
+
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_import_asiento_masive" model="ir.actions.act_window">
+            <field name="name">Importación Masiva de Asientos Contables</field>
+            <field name="res_model">wizard.import.asiento.masive</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+        <field name="target">new</field>
+        </record>
+
+        <menuitem action="action_wizard_import_asiento_masive" id="stock_move_menu_import_masive" 
+            parent="account.menu_finance_entries" sequence="4" name="Importar Asientos Masivos"/>
+
+    </odoo>
+
+
+
+
+
